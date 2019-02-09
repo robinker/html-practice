@@ -54,14 +54,6 @@ $(document).ready(function() {
         } 
     });
 
-    // $('#search-name, #search-hair, #search-skin, #search-eye').keypress(function (e){
-    //     if (e.which == 13){
-    //         if($('#search-input').val() != ''){
-    //             $('#advance-search-btn').click();
-    //         }
-    //     } 
-    // })
-
     $('#advance-search-btn').click(function(){
         $('td').remove();
         searchByName($('#search-name').val());
@@ -90,59 +82,62 @@ $(document).ready(function() {
     }
 
     function searchByHeight(height){
-        console.log(height);
-        if (height != ''){
-            list.forEach(element => {
-                if (height == 99){
-                    if(parseInt(element.height) <= height){
-                        if(jQuery.inArray(element, tmpArr) == -1){
-                            tmpArr.push(element);
-                        }
+        list.forEach(element => {
+            if(history != "all" && jQuery.inArray(element, tmpArr) == -1){
+                tmpArr.push(element);
+            }
+            
+            else if (height == 99){
+                if(parseInt(element.height) <= height){
+                    if(jQuery.inArray(element, tmpArr) == -1){
+                        tmpArr.push(element);
                     }
                 }
+            }
 
-                else if(height == 199){
-                    if(parseInt(element.height) > 99 && parseInt(element.height) < height){
-                        if(jQuery.inArray(element, tmpArr) == -1){
-                            tmpArr.push(element);
-                        }
+            else if(height == 199){
+                if(parseInt(element.height) > 99 && parseInt(element.height) < height){
+                    if(jQuery.inArray(element, tmpArr) == -1){
+                        tmpArr.push(element);
                     }
                 }
+            }
 
-                else if(height == 200){
-                    if(parseInt(element.height) > height){
-                        if(jQuery.inArray(element, tmpArr) == -1){
-                            tmpArr.push(element);
-                        }
+            else if(height == 200){
+                if(parseInt(element.height) > height){
+                    if(jQuery.inArray(element, tmpArr) == -1){
+                        tmpArr.push(element);
                     }
                 }
-                
-            });
-        }
+            }
+            
+        });
     }
 
     function searchByMass(mass){
-        if (mass != ''){
-            list.forEach(element => {
-                if(mass == 99){
-                    if(parseInt(element.mass) <= mass){
-                        if(jQuery.inArray(element, tmpArr) == -1){
-                            tmpArr.push(element);
-                        }
+        list.forEach(element => {
+            if(mass != "all" && jQuery.inArray(element, tmpArr) == -1){
+                tmpArr.push(element);
+            }
+            
+            else if(mass == 99){
+                if(parseInt(element.mass) <= mass){
+                    if(jQuery.inArray(element, tmpArr) == -1){
+                        tmpArr.push(element);
                     }
                 }
+            }
 
-                else if(mass == 100){
-                    if(parseInt(element.mass) > mass){
-                        if(jQuery.inArray(element, tmpArr) == -1){
-                            tmpArr.push(element);
-                        }
-                        
+            else if(mass == 100){
+                if(parseInt(element.mass) > mass){
+                    if(jQuery.inArray(element, tmpArr) == -1){
+                        tmpArr.push(element);
                     }
+                    
                 }
-                
-            });
-        }
+            }
+            
+        });
     }
 
     function searchByHair(color) {      
@@ -183,11 +178,10 @@ $(document).ready(function() {
 
     function searchByGender(gender){
         list.forEach(element => {
-            if (gender == "all"){
-                console.log("ALLLLLL");
+            if (gender == 'all' && jQuery.inArray(element, tmpArr) == -1){
                 tmpArr.push(element);
-                
             }
+            
             else if((element.gender).toLowerCase() == gender.toLowerCase()){
                 if(jQuery.inArray(element, tmpArr) == -1){
                     tmpArr.push(element);
@@ -197,12 +191,11 @@ $(document).ready(function() {
     }
 
     function summary(array, name, height, mass, hairColor, skinColor, eyeColor, gender){
-        console.log(eyeColor);
         // remove from last to first to prevent bugs
             if (name != ''){
                 for(var i = array.length -1 ; i > -1 ; i--){
                     if(((array[i].name).toLowerCase()).includes(name.toLowerCase())){
-                        // console.log(tmpArr[i].name);
+                        
                     }
                     else {
                         array.splice(i,1);
@@ -230,7 +223,7 @@ $(document).ready(function() {
                             array.splice(i,1);
                         }
                     }
-
+                    
                     else if(height == 200){
                         if(parseInt(array[i].height) > height){
                             
@@ -245,7 +238,6 @@ $(document).ready(function() {
             if (mass != 'all'){
                 for(var i = array.length -1 ; i > -1 ; i--){
                     if(mass == 99){
-                        console.log("MASssssssssssss 99 = " + array[i].mass);
                         if(parseInt(array[i].mass) <= mass){
 
                         }
@@ -255,13 +247,10 @@ $(document).ready(function() {
 
                     }
                     else if(mass == 100){
-                        console.log("MASssssssssssss 100")
                         if(parseInt(array[i].mass) > mass){
                             
                         }
                         else {
-                            console.log("MASssssssssssss POP")
-
                             array.splice(i,1);
                         }
                     }
@@ -312,10 +301,7 @@ $(document).ready(function() {
                     }
                 }
             }
-
-            
     }
-
 
     function showData(){
         var html = '';

@@ -3,9 +3,10 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Star War Character List</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bulma-0.7.2/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
     
 </head>
 <body class="has-background-dark">
@@ -14,7 +15,7 @@
             <div class="level">
                 <div class="level-left">
                     <div class="level-item">
-                        <input type="text" id="search-input">
+                        <input class="input" type="text" placeholder="Search here.." id="search-input">
                     </div>
                     <div class="level-item">
                         <button class="button is-light" id="search-btn">
@@ -24,7 +25,8 @@
                     <button class="button is-light" id="advance-show-btn">
                         Advanced Search
                     </button>
-            </form>
+                </div>  
+            </div>
         </div>
     </section>
 
@@ -32,65 +34,77 @@
         <div class="container">
             <div class="level">
                 <div class="level-left">
-                    <div class="level-item">
-                        <button class="button is-light" id="advance-search-btn">
-                            Search
-                        </button>
-                    </div>
-
-                    <div class="level-item">
-                        Name <input type="text" id="search-name">
+                    <div class="level-item" id="div-name">
+                        Name <input class="input" type="text" id="search-name">
                     </div> 
                     <div class="level-item">
                         Height
-                        <select id="search-height">
-                            <option value="all" selected> All </option>
-                            <option value=99> 100 </option>
-                            <option value=199> 100-200 </option>
-                            <option value=200> 200 up </option>
-                        </select>
+                        <div class="select">
+                            <select id="search-height">
+                                <option value="all" selected> All </option>
+                                <option value=99> < 100 </option>
+                                <option value=199> 100-200 </option>
+                                <option value=200> > 200 </option>
+                            </select>
+                        </div>
                     </div>
                     <div class="level-item">
-                            Mass
+                        Mass
+                        <div class="select">
                             <select id="search-mass">
                                 <option value="all" selected> All </option>
                                 <option value=99> 100 </option>
-                                <option value=100> 100 up </option>
+                                <option value=100> > 100</option>
                             </select>
                         </div>
+                    </div>
 
-                    <div class="level-item">
-                        Hair Color <input type="text" id="search-hair">
+                    <div class="level-item" id="div-hair">
+                        Hair Color <input class="input" type="text" id="search-hair">
+                    </div>
+
+                    <div class="level-item" id="div-skin">
+                        Skin Color <input class="input" type="text" id="search-skin">
+                    </div>
+
+                    <div class="level-item" id="div-eye">
+                        Eye Color <input class="input" type="text" id="search-eye">
                     </div>
 
                     <div class="level-item">
-                        Skin Color <input type="text" id="search-skin">
-                    </div>
-
-                    <div class="level-item">
-                        Eye Color <input type="text" id="search-eye">
-                    </div>
-
-                    <div class="level-item">
-                        Gender 
-                        <select id="search-gender">
-                            <option value="all" selected> All </option>
-                            <option value="male"> Male </option>
-                            <option value="female"> Female </option>
-                        </select>
+                        Gender
+                        <div class="select">
+                            <select id="search-gender">
+                                <option value="all" selected> All </option>
+                                <option value="male"> Male </option>
+                                <option value="female"> Female </option>
+                            </select>
+                        </div> 
                     </div>
                 </div>
             </div>
             <div class="level-left">
-                <button class="button is-light" id="simple-show-btn">
-                    Simple Search
-                </button>
+                <div class="level-item">
+                    <button class="button is-light" id="advance-search-btn">
+                        Search
+                    </button>
+                </div>
+                <div class="level-item">
+                    <button class="button is-light" id="simple-show-btn">
+                        Simple Search
+                    </button>
+                </div>
             </div>
         </div>
     </section>
     <section class="section">
+        <div class="container">
+            <h2>Resource File: 
+                <a href="https://swapi.co/api/people/">https://swapi.co/api/people/</a>
+            </h2>
+        </div>
         <div class="container" style="background: white">
-            <table class="table is-striped" id='summaryOfResults'>
+            <table class="table is-fullwidth" id='summaryOfResults'>
                 <tbody id="body">
                     <tr id="test">
                         <th>#</th>
