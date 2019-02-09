@@ -1,0 +1,56 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Taviraj" rel="stylesheet">
+    <title>CSS Specificity</title>
+</head>
+<body>
+    <section>
+        <div>
+            <h1> CSS specificity</h1>
+            <p> CSS specificity คือ การเลือกทำสิ่งที่มีลำดับความสำคัญมากกว่าเมื่อมี selector ที่ซ้ำกัน โดยจะเลือกทำอันที่มีความสำคัญมากที่สุด
+                ยกตัวอย่างเช่น
+                <h2> 1. Class vs Id</h2>
+                <div class="example" id="example-1">  
+                    <h3> HTML :</h3> <img src="pic/htmlCollar.png">
+                    
+                    <h3> CSS :</h3> <img src="pic/cssCollar.PNG">
+                </div>
+                
+                <h3> Result :</h3> <img src="pic/collar.PNG">
+                <p class="conclusion"> 
+                    จะเห็นได้ว่าพื้นหลังของ collar เป็นสี tomato ถึงแม้ว่า selector .collar จะอยู่ในลำดับสุดท้าย แต่ selector ก็ apply background ที่เป็นสี tomato
+                    นั่นคือ selector ที่มี id จะมีลำดับความสำคัญมากกว่า class นั่นเอง
+                </p>
+                
+                
+                <h2> 2. Tag vs Class</h2>
+                <div class="example" id="example-2">  
+                    <h3> HTML :</h3> <img src="pic/htmlCollar.PNG">
+                   
+                    <h3> CSS :</h3> <img src="pic/cssExp2.PNG">
+                </div>
+
+                <h3> Result :</h3> <img src="pic/exp2.PNG">
+                    <p class="conclusion"> 
+                        จากตัวอย่างที่ 2 จะเห็นได้ว่าสีตัวอักษร เป็นสี purple ถึงแม้ว่า selector div จะอยู่ในลำดับสุดท้าย แต่ selector ก็เลือกที่จะใช้สี purple
+                        ดังนั้นจะสรุปได้ว่า selector ที่มี class จะมีลำดับความสำคัญมากกว่า tag ปกติ
+                    </p> 
+            </p>
+        </div>
+        <div>
+            <h2> สรุป </h2>
+            <p> จากทั้ง 2 ตัวอย่างสามารถจัดลำดับความสำคัญได้ดังนี้ โดยเรียงจากมากไปน้อย
+                <ol>
+                    <li> id </li>
+                    <li> class </li>
+                    <li> tag </li>
+                </ol>
+            </p>
+        </div>
+    </section>
+</body>
+</html>

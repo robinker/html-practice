@@ -1,0 +1,28 @@
+section div{
+    margin: 5px;
+}
+
+img {
+    width: 50%;
+}
+
+body {
+    font-family: 'Taviraj', serif;
+    background: gainsboro;
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+}
+
+h1 {
+    text-align: center;
+    border-bottom: 2.5px groove;
+}
+
+h2 {
+    text-decoration: underline;
+}
+
+section {
+    grid-column-start: 2;
+    background: whitesmoke;
+}
