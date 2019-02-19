@@ -11,9 +11,6 @@
 </head>
 <body>
     <div class="container">
-        <form name="myform" action="form.php" class="form" method="POST">
-        
-        </form>
         <label for="" class="label"> Personnal Detail</label>
         <hr>
         <div class="field">

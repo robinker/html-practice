@@ -6,7 +6,7 @@
     <title>Survey</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bulma-0.7.2/css/bulma.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <script src="jquery-3.3.1.min.js"></script>
     <script src="myscript.js"></script>
 </head>
@@ -55,7 +55,7 @@
                     <div class="select is-info">
                         <select name="position" id="position">
                             <option value="Attacker">Attacker</option>
-                            <option value="Denfender">Denfender</option>
+                            <option value="Denfender">Scout</option>
                             <option value="Supporter">Supporter</option>
                         </select>
                     </div> 
@@ -79,9 +79,23 @@
                     </div> 
                 </div>
             </div>
-
-            <div class="field">
-                <button class="button is-primary" id="submit-btn">Submit</button>
+            
+            <div class="field is-grouped">
+                <p class="control">
+                    <button class="button is-primary" id="submit-btn">Submit</button>
+                </p>
+                <p class="control">
+                    <div class="file">
+                        <label class="file-label">
+                            <input class="file-input" type="file" name="resume">
+                            <span class="file-cta">
+                                <span class="file-label">
+                                    Choose a file…
+                                </span>
+                            </span>
+                        </label>
+                    </div>
+                </p>
             </div>
 
         </form>

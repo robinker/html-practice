@@ -8,7 +8,6 @@ $(document).ready(function() {
         event.preventDefault();
     });
 
-    
     function isValidForm() {
         var bool = true;
         if($('#name').val() == ''){
