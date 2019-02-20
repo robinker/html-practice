@@ -1,36 +1,62 @@
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Register</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="bulma-0.7.2/css/bulma.min.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="jquery-3.3.1.min.js"></script>
-    <script src="myscript.js"></script>
-</head>
-<body>
-    <div class="container">
-        <label for="" class="label"> Personnal Detail</label>
-        <hr>
-        <div class="field">
-            <strong> Name </strong><?php echo $_POST["name"]; ?><br>
-        </div>
-        <div class="field">
-            <strong> Lastname </strong><?php echo $_POST["last_name"]; ?><br>
-        </div>
-        <div class="field">
-            <strong> Gender </strong><?php echo $_POST["gender"]; ?><br>
-        </div>
-        <div class="field">
-            <strong> Origin </strong><?php echo $_POST["username"]; ?><br>
-        </div>
-        <div class="field">
-            <strong> Main Position </strong><?php echo $_POST["position"]; ?><br>
-        </div>
-        <div class="field">
-            <strong> Main Hero </strong><?php echo $_POST["hero"]; ?>
-        </div>
-    </div>
-</body>
-</html>
+<?php
+    $nameErr = $lastNameErr = $genderErr = $killErr = $deadErr = $assistErr = "";
+    $name = $lastName = $gender = $position = $kill = $dead = $assist = "";
+    
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (empty($_POST["name"])) {
+          $nameErr = "Name is required";
+        } else {
+          $name = test_input($_POST["name"]);
+        }
+        
+        if (empty($_POST["last_name"])) {
+          $lastNameErr = "Last Name is required";
+        } else {
+          $lastName = test_input($_POST["last_name"]);
+        }
+          
+        if (empty($_POST["gender"])) {
+          $genderErr = "";
+        } else {
+          $gender = test_input($_POST["gender"]);
+        }
+        
+        if (empty($_POST["username"])) {
+          $genderErr = "Username is required";
+        } else {
+          $gender = test_input($_POST["username"]);
+        }
+
+        if (empty($_POST["position"])) {
+          $position = "";
+        } else {
+          $position = test_input($_POST["position"]);
+        }
+      
+        if (empty($_POST["kill"])) {
+          $killErr = "Kill Score is required";
+        } else {
+          $kill = test_input($_POST["kill"]);
+        }
+
+        if (empty($_POST["dead"])) {
+          $deadErr = "Dead Score is required";
+        } else {
+          $dead = test_input($_POST["dead"]);
+        }
+
+        if (empty($_POST["assist"])) {
+          $assistErr = "Assist Score is required";
+        } else {
+          $assist = test_input($_POST["assist"]);
+        }
+      
+      }
+
+      header('Location: localhost/githubpages/heroku');
+      die();
+
+
+
+
+?>
